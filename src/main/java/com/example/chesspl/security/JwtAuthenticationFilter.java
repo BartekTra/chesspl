@@ -16,7 +16,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    private JwtProvider jwtProvider;
+    private JwtProviderImpl jwtProvider;
 
     @Override
     protected void doFilterInternal(

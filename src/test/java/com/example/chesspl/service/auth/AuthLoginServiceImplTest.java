@@ -3,7 +3,7 @@ package com.example.chesspl.service.auth;
 import com.example.chesspl.controller.auth.dto.LoginRequest;
 import com.example.chesspl.controller.auth.dto.LoginResponse;
 import com.example.chesspl.repository.user.UserRepository;
-import com.example.chesspl.security.JwtProvider;
+import com.example.chesspl.security.JwtProviderImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class AuthLoginServiceTest {
+class AuthLoginServiceImplTest {
 
     @Mock
     private AuthenticationManager authenticationManager;
 
     @Mock
-    private JwtProvider jwtProvider;
+    private JwtProviderImpl jwtProvider;
 
     @Mock
     private UserRepository userRepository;
@@ -33,7 +33,7 @@ class AuthLoginServiceTest {
     private PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    private AuthLoginService authLoginService;
+    private AuthLoginServiceImpl authLoginServiceImpl;
 
     @Test
     void login_ShouldReturnToken_WhenCredentialsAreValid() {
@@ -48,7 +48,7 @@ class AuthLoginServiceTest {
 
         when(jwtProvider.generateToken("testUser")).thenReturn(expectedToken);
 
-        LoginResponse response = authLoginService.login(request);
+        LoginResponse response = authLoginServiceImpl.login(request);
 
         assertNotNull(response, "Response shouldnt be null");
         assertEquals(expectedToken, response.getToken(), "token in response must be the same as generated one");
@@ -68,7 +68,7 @@ class AuthLoginServiceTest {
 
         BadCredentialsException exception = assertThrows(
                 BadCredentialsException.class,
-                () -> authLoginService.login(request)
+                () -> authLoginServiceImpl.login(request)
         );
 
         assertEquals("wrong login or password", exception.getMessage());

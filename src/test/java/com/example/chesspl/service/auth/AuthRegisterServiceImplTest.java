@@ -6,7 +6,7 @@ import com.example.chesspl.controller.user.DefaultUserMapper;
 import com.example.chesspl.exception.UserAlreadyExistsException;
 import com.example.chesspl.model.User;
 import com.example.chesspl.repository.user.UserRepository;
-import com.example.chesspl.security.JwtProvider;
+import com.example.chesspl.security.JwtProviderImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthRegisterServiceTest {
+public class AuthRegisterServiceImplTest {
 
     // should throw UserAlreadyExistsException when Username is already taken - todo
     // should throw UserAlreadyExistsException when Email is already taken - todo
@@ -30,13 +30,13 @@ public class AuthRegisterServiceTest {
     private UserRepository userRepository;
 
     @Mock
-    private JwtProvider jwtProvider;
+    private JwtProviderImpl jwtProvider;
 
     @Mock
     private DefaultUserMapper defaultUserMapper;
 
     @InjectMocks
-    private AuthRegisterService authRegisterService;
+    private AuthRegisterServiceImpl authRegisterServiceImpl;
 
     private RegisterRequest request;
     @BeforeEach
@@ -56,7 +56,7 @@ public class AuthRegisterServiceTest {
 
         UserAlreadyExistsException exception = assertThrows(
                 UserAlreadyExistsException.class,
-                () -> authRegisterService.register(request)
+                () -> authRegisterServiceImpl.register(request)
         );
 
         assertEquals("error.auth.register.username_exists", exception.getMessage());
@@ -69,7 +69,7 @@ public class AuthRegisterServiceTest {
 
         UserAlreadyExistsException exception = assertThrows(
                 UserAlreadyExistsException.class,
-                () -> authRegisterService.register(request)
+                () -> authRegisterServiceImpl.register(request)
         );
 
         assertEquals("error.auth.register.email_exists", exception.getMessage());
@@ -105,7 +105,7 @@ public class AuthRegisterServiceTest {
 
         when(defaultUserMapper.toResponse(savedUser, mockToken)).thenReturn(expectedResponse);
 
-        RegisterResponse actualResponse = authRegisterService.register(request);
+        RegisterResponse actualResponse = authRegisterServiceImpl.register(request);
 
         assertEquals(expectedResponse, actualResponse);
 
