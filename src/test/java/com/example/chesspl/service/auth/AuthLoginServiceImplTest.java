@@ -1,8 +1,9 @@
 package com.example.chesspl.service.auth;
 
-import com.example.chesspl.controller.auth.dto.LoginRequest;
-import com.example.chesspl.controller.auth.dto.LoginResponse;
-import com.example.chesspl.repository.user.UserRepository;
+import com.example.chesspl.auth.service.AuthLoginServiceImpl;
+import com.example.chesspl.auth.dto.LoginRequest;
+import com.example.chesspl.auth.dto.LoginResponse;
+import com.example.chesspl.user.UserRepository;
 import com.example.chesspl.security.JwtProviderImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

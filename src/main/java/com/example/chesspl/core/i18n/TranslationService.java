@@ -1,4 +1,4 @@
-package com.example.chesspl.service.i18l;
+package com.example.chesspl.core.i18n;
 
 public interface TranslationService {
     public String getMessage(String code);

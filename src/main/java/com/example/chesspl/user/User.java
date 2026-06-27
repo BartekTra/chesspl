@@ -1,4 +1,4 @@
-package com.example.chesspl.model;
+package com.example.chesspl.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;

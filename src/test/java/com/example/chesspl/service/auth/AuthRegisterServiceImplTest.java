@@ -1,11 +1,12 @@
 package com.example.chesspl.service.auth;
 
-import com.example.chesspl.controller.auth.dto.RegisterRequest;
-import com.example.chesspl.controller.auth.dto.RegisterResponse;
-import com.example.chesspl.controller.user.DefaultUserMapper;
-import com.example.chesspl.exception.UserAlreadyExistsException;
-import com.example.chesspl.model.User;
-import com.example.chesspl.repository.user.UserRepository;
+import com.example.chesspl.auth.service.AuthRegisterServiceImpl;
+import com.example.chesspl.auth.dto.RegisterRequest;
+import com.example.chesspl.auth.dto.RegisterResponse;
+import com.example.chesspl.user.DefaultUserMapper;
+import com.example.chesspl.core.exception.UserAlreadyExistsException;
+import com.example.chesspl.user.User;
+import com.example.chesspl.user.UserRepository;
 import com.example.chesspl.security.JwtProviderImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.example.chesspl.security;
 
-import com.example.chesspl.model.User;
-import com.example.chesspl.repository.user.UserRepository;
+import com.example.chesspl.user.User;
+import com.example.chesspl.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package com.example.chesspl.service.i18l;
+package com.example.chesspl.core.i18n;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;

@@ -1,9 +1,8 @@
-package com.example.chesspl.service.auth;
+package com.example.chesspl.auth.service;
 
-import com.example.chesspl.controller.auth.dto.LoginRequest;
-import com.example.chesspl.controller.auth.dto.LoginResponse;
-import com.example.chesspl.repository.user.UserRepository;
-import com.example.chesspl.security.JwtProviderImpl;
+import com.example.chesspl.auth.dto.LoginRequest;
+import com.example.chesspl.auth.dto.LoginResponse;
+import com.example.chesspl.user.UserRepository;
 import com.example.chesspl.security.TokenProvider;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;

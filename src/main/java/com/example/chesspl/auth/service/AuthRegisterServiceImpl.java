@@ -1,11 +1,10 @@
-package com.example.chesspl.service.auth;
+package com.example.chesspl.auth.service;
 
-import com.example.chesspl.controller.auth.dto.RegisterRequest;
-import com.example.chesspl.controller.auth.dto.RegisterResponse;
-import com.example.chesspl.controller.user.UserMapper;
-import com.example.chesspl.exception.UserAlreadyExistsException;
-import com.example.chesspl.repository.user.UserRepository;
-import com.example.chesspl.security.JwtProviderImpl;
+import com.example.chesspl.auth.dto.RegisterRequest;
+import com.example.chesspl.auth.dto.RegisterResponse;
+import com.example.chesspl.user.UserMapper;
+import com.example.chesspl.core.exception.UserAlreadyExistsException;
+import com.example.chesspl.user.UserRepository;
 import com.example.chesspl.security.TokenProvider;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;

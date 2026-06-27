@@ -1,4 +1,4 @@
-package com.example.chesspl.controller.auth.dto;
+package com.example.chesspl.auth.dto;
 
 
 import lombok.AllArgsConstructor;

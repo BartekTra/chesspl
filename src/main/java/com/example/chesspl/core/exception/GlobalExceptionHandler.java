@@ -1,6 +1,6 @@
-package com.example.chesspl.exception;
+package com.example.chesspl.core.exception;
 
-import com.example.chesspl.service.i18l.TranslationService;
+import com.example.chesspl.core.i18n.TranslationService;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

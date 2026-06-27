@@ -1,12 +1,10 @@
-package com.example.chesspl.controller.auth;
+package com.example.chesspl.auth.controller;
 
-import com.example.chesspl.controller.auth.dto.LoginRequest;
-import com.example.chesspl.controller.auth.dto.RegisterRequest;
-import com.example.chesspl.controller.auth.dto.RegisterResponse;
-import com.example.chesspl.service.auth.AuthLoginService;
-import com.example.chesspl.service.auth.AuthLoginServiceImpl;
-import com.example.chesspl.service.auth.AuthRegisterService;
-import com.example.chesspl.service.auth.AuthRegisterServiceImpl;
+import com.example.chesspl.auth.dto.LoginRequest;
+import com.example.chesspl.auth.dto.RegisterRequest;
+import com.example.chesspl.auth.dto.RegisterResponse;
+import com.example.chesspl.auth.service.AuthLoginService;
+import com.example.chesspl.auth.service.AuthRegisterService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

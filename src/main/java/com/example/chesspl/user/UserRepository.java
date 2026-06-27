@@ -1,6 +1,5 @@
-package com.example.chesspl.repository.user;
+package com.example.chesspl.user;
 
-import com.example.chesspl.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

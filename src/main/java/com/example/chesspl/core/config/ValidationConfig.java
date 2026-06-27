@@ -1,4 +1,4 @@
-package com.example.chesspl.config;
+package com.example.chesspl.core.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

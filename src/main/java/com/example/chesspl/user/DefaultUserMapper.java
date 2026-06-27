@@ -1,8 +1,7 @@
-package com.example.chesspl.controller.user;
+package com.example.chesspl.user;
 
-import com.example.chesspl.controller.auth.dto.RegisterRequest;
-import com.example.chesspl.controller.auth.dto.RegisterResponse;
-import com.example.chesspl.model.User;
+import com.example.chesspl.auth.dto.RegisterRequest;
+import com.example.chesspl.auth.dto.RegisterResponse;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
