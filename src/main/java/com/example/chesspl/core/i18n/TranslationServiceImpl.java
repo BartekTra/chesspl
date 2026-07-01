@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class TranslationServiceImpl {
+public class TranslationServiceImpl implements TranslationService {
 
     private final MessageSource messageSource;
 

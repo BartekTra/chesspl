@@ -1,13 +1,12 @@
-package com.example.chesspl.service.auth;
+package com.example.chesspl.auth.service;
 
-import com.example.chesspl.auth.service.AuthRegisterServiceImpl;
 import com.example.chesspl.auth.dto.RegisterRequest;
 import com.example.chesspl.auth.dto.RegisterResponse;
-import com.example.chesspl.user.DefaultUserMapper;
 import com.example.chesspl.core.exception.UserAlreadyExistsException;
+import com.example.chesspl.security.TokenProvider;
 import com.example.chesspl.user.User;
+import com.example.chesspl.user.UserMapper;
 import com.example.chesspl.user.UserRepository;
-import com.example.chesspl.security.JwtProviderImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,10 +30,10 @@ public class AuthRegisterServiceImplTest {
     private UserRepository userRepository;
 
     @Mock
-    private JwtProviderImpl jwtProvider;
+    private TokenProvider tokenProvider;
 
     @Mock
-    private DefaultUserMapper defaultUserMapper;
+    private UserMapper userMapper;
 
     @InjectMocks
     private AuthRegisterServiceImpl authRegisterServiceImpl;
@@ -98,13 +97,13 @@ public class AuthRegisterServiceImplTest {
                 mockToken
                 );
 
-        when(defaultUserMapper.toEntity(request)).thenReturn(unmappedUser);
+        when(userMapper.toEntity(request)).thenReturn(unmappedUser);
 
         when(userRepository.save(unmappedUser)).thenReturn(savedUser);
 
-        when(jwtProvider.generateToken(request.getUsername())).thenReturn(mockToken);
+        when(tokenProvider.generateToken(request.getUsername())).thenReturn(mockToken);
 
-        when(defaultUserMapper.toResponse(savedUser, mockToken)).thenReturn(expectedResponse);
+        when(userMapper.toResponse(savedUser, mockToken)).thenReturn(expectedResponse);
 
         RegisterResponse actualResponse = authRegisterServiceImpl.register(request);
 

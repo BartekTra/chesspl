@@ -16,7 +16,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    private JwtProviderImpl jwtProvider;
+    private TokenProvider tokenProvider;
 
     @Override
     protected void doFilterInternal(
@@ -28,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (header != null && header.startsWith("Bearer ")) {
             String token = header.substring(7);
             try{
-                String username = jwtProvider.getUserFromToken(token);
+                String username = tokenProvider.getUserFromToken(token);
                 if (username != null) {
                     UsernamePasswordAuthenticationToken auth =
                             new UsernamePasswordAuthenticationToken(

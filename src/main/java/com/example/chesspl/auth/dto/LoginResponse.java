@@ -1,6 +1,5 @@
 package com.example.chesspl.auth.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

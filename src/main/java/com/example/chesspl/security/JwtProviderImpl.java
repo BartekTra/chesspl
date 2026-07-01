@@ -3,6 +3,7 @@ package com.example.chesspl.security;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -10,7 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 @Component
-public class JwtProviderImpl {
+@Primary
+public class JwtProviderImpl implements TokenProvider {
 
     @Value("${JWT_SECRET}")
     private String secretKeyString;
